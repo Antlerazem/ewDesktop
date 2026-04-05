@@ -1,0 +1,55 @@
+{
+  "events": {
+    "change_cup": {
+      "id": "change_cup",
+      "name": "换大盏",
+      "dialogue": "怎么，无聊了？我倒是有几个找乐子的好主意，不过，要是你一不小心死了，我不负责。",
+      "trigger": "random_idle",
+      "audio_start": "assets/audio/specified/FunIdea.mp3",
+      "timeout_option_index": 1,
+      "options": [
+        {
+          "text": "同意",
+          "result": {
+            "type": "trigger_event",
+            "target_event": "pour_wine",
+            "favorability_change": 0
+          }
+        },
+        {
+          "text": "假寐",
+          "result": {
+            "type": "audio",
+            "favorability_change": -5,
+            "audio_file": "assets/audio/specified/sleeping.mp3"
+          }
+        }
+      ]
+    },
+    "pour_wine": {
+      "id": "pour_wine",
+      "name": "倒酒",
+      "dialogue": "真的要玩吗",
+      "trigger": "manual",
+      "timeout_option_index": 1,
+      "options": [
+        {
+          "text": "彳亍",
+          "result": {
+            "type": "laugh",
+            "favorability_change": 5,
+            "state": "laugh"
+          }
+        },
+        {
+          "text": "反悔",
+          "result": {
+            "type": "audio",
+            "favorability_change": -3,
+            "audio_file": "assets/audio/specified/SoPoor.mp3"
+          }
+        }
+      ]
+    }
+  }
+}
